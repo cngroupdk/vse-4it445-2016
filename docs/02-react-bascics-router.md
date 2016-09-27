@@ -3,12 +3,11 @@
 ## Git basics
 
 ```bash
-git remote add origin https://github.com/user/repo.git
-
 git status
 
 
-git checkout -b the-branch-name
+
+git checkout -b <the-branch-name>
 
 
 
@@ -16,18 +15,28 @@ git add .
 
 git commit
 
-git push
+git log
+
 
 
 
 git fetch --all
 
-git checkout -b practical-02
+git checkout -b my-practice-02
 
 git reset --hard cngroup/practical-02
 
+git checkout <branch-name>
+```
 
-git checkout
+## After GitHub Fork
+
+```bash
+git remote add origin <git@github.com:heracek/vse-4it445.git>
+
+git checkout my-practice-02
+
+git push --set-upstream origin my-practice-02
 
 ```
 
