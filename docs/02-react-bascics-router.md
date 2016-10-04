@@ -40,7 +40,10 @@ git push --set-upstream origin my-practice-02
 
 ```
 
-## Packages
+## Firefox Plugins
+- [React Developer Tools](https://addons.mozilla.org/en-us/firefox/addon/react-devtools/)
+
+## Used NPM Packages
 
 - [Bootstrap](http://getbootstrap.com/)
 - [classnames](https://github.com/JedWatson/classnames)
