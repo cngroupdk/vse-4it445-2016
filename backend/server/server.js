@@ -17,6 +17,15 @@ var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
 
+app.get('/hello', function (req, res) {
+  const data = {
+    hello: "World",
+    time: new Date(),
+  };
+  res.header({ 'Content-Type': 'application/json' });
+  res.send(JSON.stringify(data));
+});
+
 app.start = function() {
   // start the web server
   return app.listen(function() {
