@@ -26,6 +26,8 @@ git checkout -b my-practice-02
 
 git reset --hard cngroup/practical-02
 
+
+
 git checkout <branch-name>
 ```
 
