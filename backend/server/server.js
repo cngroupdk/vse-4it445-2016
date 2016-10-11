@@ -17,6 +17,18 @@ var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
 
+app.get('/hello', function(request, response) {
+  const data = {
+    hello: request.query.name || 'world',
+    version: '0.4.2',
+    time: new Date(),
+    moreItems: [1, 2, { four: 4 }],
+  };
+
+  response.header({ 'Content-Type': 'application/json' });
+  response.send(JSON.stringify(data));
+});
+
 app.start = function() {
   // start the web server
   return app.listen(function() {
