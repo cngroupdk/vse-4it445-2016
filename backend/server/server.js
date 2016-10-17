@@ -12,6 +12,9 @@ log4js.configure({
   replaceConsole: true,
 });
 
+var dotenv = require('dotenv');
+dotenv.config();
+
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 

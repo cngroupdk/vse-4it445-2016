@@ -1,4 +1,10 @@
+# 4th Practical Class: DB and ORM
 
+# Docs
+
+- [LoopBack docs](http://apidocs.strongloop.com/)
+
+# Setup
 
 `model-config.json`:
 

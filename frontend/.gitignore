@@ -15,4 +15,5 @@ build
 npm-debug.log
 
 # custom
-/tmp
+/tmp/*
+!/tmp/.gitkeep

@@ -1,4 +1,4 @@
-# Getting Started with LoopBack on Local Machine
+# 3rd Practical Class: Getting Started with LoopBack on Local Machine
 
 ## Install on Local Machine
 
