@@ -1,23 +1,16 @@
 import { combineReducers } from 'redux';
 
-const dummy = (state = null, action) => {
-  console.log('---- action:', action);
-  return state;
-}
+import shoppingCart from '../components/ShoppingCart/reducer.js';
 
-const defaultShoppingCart = {
-  1: {
-    product: { title: 'abc', id: 1 },
-    count: 1,
-  },
-  2: {
-    product: { title: '123', id: 2 },
-    count: 10,
-  },
-};
+const dummy = (state=0, action) => {
+  console.log('---- action:', action, 'state:', state);
 
-const shoppingCart = (state={ ...defaultShoppingCart }, action) => {
-  return state;
+  switch (action.type) {
+    case 'DUMMY_ACTION':
+      return state + 1;
+    default:
+      return state;
+  }
 }
 
 export const rootReducer = combineReducers({

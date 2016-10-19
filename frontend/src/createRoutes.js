@@ -8,6 +8,7 @@ import { NoMatchPage } from './pages/NoMatchPage.js';
 import { ProductDetailPage } from './pages/ProductDetailPage.js'
 import { ProductsPage } from './pages/ProductsPage.js';
 import { ShoppingCartPage } from './pages/ShoppingCartPage.js'
+import { ShoppingCartCheckoutPage } from './pages/ShoppingCartCheckoutPage.js'
 
 export function createRoutes() {
   return (
@@ -19,6 +20,7 @@ export function createRoutes() {
       </Route>
       <Route path="/contact" component={ContactPage}/>
       <Route path="/cart" component={ShoppingCartPage}/>
+      <Route path="/cart/checkout" component={ShoppingCartCheckoutPage}/>
       <Route path="*" component={NoMatchPage}/>
     </Route>
   );

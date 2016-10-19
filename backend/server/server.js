@@ -19,8 +19,8 @@ var loopback = require('loopback');
 var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
-
-
+var multer = require('multer');
+app.use(multer().none());
 
 app.get('/hello', function (req, res) {
   const data = {

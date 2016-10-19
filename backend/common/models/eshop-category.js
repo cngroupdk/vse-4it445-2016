@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = function(Eshopcategory) {
+module.exports = function(EshopCategory) {
 
 };

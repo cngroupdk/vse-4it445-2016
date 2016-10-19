@@ -56,4 +56,6 @@ module.exports = function(app) {
       });
     });
   });
+  app.dataSources.mysqlds.autoupdate('EshopOrder', function(err) { });
+  app.dataSources.mysqlds.autoupdate('EshopOrderItem', function(err) { });
 };

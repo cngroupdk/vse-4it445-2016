@@ -39,5 +39,13 @@
   "EshopCategory": {
     "dataSource": "mysqlds",
     "public": true
+  },
+  "EshopOrder": {
+    "dataSource": "mysqlds",
+    "public": true
+  },
+  "EshopOrderItem": {
+    "dataSource": "mysqlds",
+    "public": false
   }
 }
