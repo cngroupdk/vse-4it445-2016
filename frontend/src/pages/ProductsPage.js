@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import lodash from 'lodash';
 
 import api from '../api.js';
 import { ProductList } from '../components/ProductList/ProductList.js';
@@ -11,12 +12,16 @@ export class ProductsPage extends Component {
       products: null,
     };
 
+    this.fetchProductsDebounced = lodash.debounce(
+      this.fetchProducts,
+      500
+    );
     this.handleSearchChange = this.handleSearchChange.bind(this);
   }
 
   handleSearchChange(event) {
     const searchTerm = event.target.value;
-    this.fetchProducts(searchTerm);
+    this.fetchProductsDebounced(searchTerm);
   }
 
   paramsForSerchTerm(searchTerm) {
