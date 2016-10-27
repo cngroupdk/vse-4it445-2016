@@ -16,11 +16,11 @@
     },
     "productTitle": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "productPrice": {
       "type": "number",
-      "required": true
+      "required": false
     },
     "quantity": {
       "type": "number",

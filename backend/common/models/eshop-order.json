@@ -34,25 +34,22 @@
       "accepts": [
         {
           "arg": "items",
-          "type": "[EshopOrderItem]",
+          "type": "array",
           "description": ""
         },
         {
           "arg": "firstName",
           "type": "string",
-          "required": true,
           "description": ""
         },
         {
           "arg": "lastName",
           "type": "string",
-          "required": true,
           "description": ""
         },
         {
           "arg": "address",
           "type": "string",
-          "required": true,
           "description": ""
         }
       ],

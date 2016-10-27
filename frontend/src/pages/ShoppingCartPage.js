@@ -14,9 +14,7 @@ import {
 export class ShoppingCartPageRaw extends Component {
   render() {
     return (
-      <div>
-        <ShoppingCart {...this.props} />
-      </div>
+      <ShoppingCart {...this.props} />
     );
   }
 }
