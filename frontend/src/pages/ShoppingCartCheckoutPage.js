@@ -33,8 +33,6 @@ export class ShoppingCartCheckoutPageRaw extends Component {
 
     api.post('orders/submit', formData)
       .then(({ data }) => {
-        console.log('data', data);
-
         this.setState({ errors: {} });
       })
       .catch(error => {
@@ -48,7 +46,10 @@ export class ShoppingCartCheckoutPageRaw extends Component {
   render() {
     const { items } = this.props;
     const { errors } = this.state;
-    const { itemsErrors = [] } = errors;
+    const {
+      items: globalItemsErrors = [],
+      itemsErrors = [],
+    } = errors;
 
     return (
       <div>
@@ -56,29 +57,36 @@ export class ShoppingCartCheckoutPageRaw extends Component {
           <h1>Checkout</h1>
         </div>
         <form onSubmit={this.handleSubmit}>
+          {globalItemsErrors.length === 0 ? undefined:
+            <FormGroup validationState="error">
+              {globalItemsErrors.map((errorMessage, index) => (
+                <HelpBlock key={index}>
+                  {errorMessage}
+                </HelpBlock>
+              ))}
+            </FormGroup>
+          }
           {items.map(({ product, quantity }, index) => {
             const errors = itemsErrors[index] || {};
-            const anyErrors = Object.keys(errors).length > 0;
+            const errorPairs = Object.keys(errors).reduce((errorPairs, key) => {
+              const keyErrors = errors[key];
+              const keyErrorPairs = keyErrors.map(errorMessage => [key, errorMessage]);
+              return [...errorPairs, ...keyErrorPairs];
+            }, []);
+            const anyErrors = errorPairs.length > 0;
 
-            return (
-              <div key={index}>
-                {anyErrors ? <div>Errors!</div> : null}
-                {product.title} x {quantity}
-              </div>
-            );
-
-            // const errors = itemsErrors[index] || {};
-            // const anyErrors = Object.keys(errors).length > 0;
             return (
               <FormGroup
                 validationState={anyErrors ? "error" : undefined}
                 key={index}
               >
-                {anyErrors ?
-                  <HelpBlock>some item errors</HelpBlock> : null
-                }
+                {errorPairs.map(([key, errorMessage], index) => (
+                  <HelpBlock key={index}>
+                    {key} {errorMessage}
+                  </HelpBlock>
+                ))}
                 <FormControl.Static>
-                  <h3>{product.title} x {quantity}</h3>
+                  {product.title} x {quantity}
                 </FormControl.Static>
               </FormGroup>
             );
@@ -90,8 +98,6 @@ export class ShoppingCartCheckoutPageRaw extends Component {
               ['address', 'Address']
             ].map(([key, label]) => {
               const errorMessages = errors[key] || [];
-              console.log('messages', errorMessages);
-
               return (
                 <FormGroup
                   validationState={errorMessages.length > 0 ? "error" : undefined}
