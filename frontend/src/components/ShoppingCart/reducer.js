@@ -7,6 +7,12 @@ import {
 } from './actions.js';
 
 const initialDummyState = {
+  0: {
+    product: {
+      id: null,
+    },
+    quantity: null,
+  },
   1: {
     product: {
       id: 1,
