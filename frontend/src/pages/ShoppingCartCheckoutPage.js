@@ -10,7 +10,7 @@ export class ShoppingCartCheckoutPageRaw extends Component {
     super(props);
 
     this.state = {
-      firstName: "",
+      errors: {},
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,23 +32,64 @@ export class ShoppingCartCheckoutPageRaw extends Component {
     );
 
     api.post('orders/submit', formData)
-      .then(({ data }) => console.log('data', data));
+      .then(({ data }) => {
+        this.setState({ errors: {} });
+      })
+      .catch(error => {
+        const { response } = error;
+        const { data } = response;
+        const { errors } = data.error.details;
+
+        this.setState({ errors });
+      });
   }
 
   render() {
+    const { items } =  this.props;
+    const { errors } = this.state;
+    const itemsErrors = errors.itemsErrors || [];
+
     return (
       <div>
         <div className="jumbotron">
           <h1>Checkout</h1>
         </div>
         <form onSubmit={this.handleSubmit}>
+          {items.map(({ product, quantity }, index) => {
+            const errors = itemsErrors[index] || [];
+            const anyErrors = Object.keys(errors).length > 0;
+
+            return (
+              <FormGroup
+                validationState={anyErrors ? "error" : undefined}
+                key={index}
+              >
+                <FormControl.Static>
+                  {product.title} x {quantity}
+                </FormControl.Static>
+                {anyErrors ? <HelpBlock>Some item errors</HelpBlock> : null}
+              </FormGroup>
+            );
+          })}
           <div>
-            {[['firstName', 'First name'], ['lastName', 'Last name'], ['address', 'Address']].map(([key, label]) => {
+            {[
+              ['firstName', 'First name'],
+              ['lastName', 'Last name'],
+              ['address', 'Address']
+            ].map(([key, label]) => {
+              const errorMessages = errors[key] || [];
+
               return (
-                <FormGroup key={key} controlId={key}>
+                <FormGroup
+                  validationState={errorMessages.length > 0 ? "error" : undefined}
+                  key={key}
+                  controlId={key}
+                >
                   <ControlLabel>{label}</ControlLabel>
                   <FormControl type="text" name={key} />
-                  <HelpBlock>helper text</HelpBlock>
+                  {errorMessages.map((message, index) =>
+                    <HelpBlock key={index}>{message}</HelpBlock>
+                  )}
                 </FormGroup>
               );
             })}

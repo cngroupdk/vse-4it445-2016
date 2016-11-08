@@ -9,13 +9,19 @@ import {
 const initialDummyState = {
   1: {
     product: {
-      id: 1,
+      id: null,
+    },
+    quantity: null,
+  },
+  2: {
+    product: {
+      id: 2,
       title: 'Škoda Superb',
       price: 750000,
       shortInfo: 'Luxury car produced in the Czech Republic.',
     },
     quantity: 1,
-  }
+  },
 };
 
 export const shoppingCartReducer = (state = initialDummyState, action) => {
