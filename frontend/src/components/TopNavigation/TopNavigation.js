@@ -10,6 +10,7 @@ export class TopNavigation extends Component {
           <li><Link to="/products">Products</Link></li>
           <li><Link to="/contact">Contact</Link></li>
           <li><Link to="/cart">Cart</Link></li>
+          <li><Link to="/login">Login</Link></li>
         </ul>
         <h3 className="text-muted"><Link to="/">E-shop</Link></h3>
       </div>

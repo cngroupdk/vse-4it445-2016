@@ -7,12 +7,6 @@ import {
 } from './actions.js';
 
 const initialDummyState = {
-  0: {
-    product: {
-      id: null,
-    },
-    quantity: null,
-  },
   1: {
     product: {
       id: 1,
@@ -21,7 +15,7 @@ const initialDummyState = {
       shortInfo: 'Luxury car produced in the Czech Republic.',
     },
     quantity: 1,
-  }
+  },
 };
 
 export const shoppingCartReducer = (state = initialDummyState, action) => {

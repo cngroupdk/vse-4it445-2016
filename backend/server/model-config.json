@@ -13,23 +13,20 @@
       "./mixins"
     ]
   },
-  "User": {
-    "dataSource": "db"
-  },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "mysqlds",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "mysqlds",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "mysqlds",
     "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "mysqlds",
     "public": false
   },
   "EshopProduct": {
@@ -47,5 +44,9 @@
   "EshopOrderItem": {
     "dataSource": "mysqlds",
     "public": false
+  },
+  "user": {
+    "dataSource": "mysqlds",
+    "public": true
   }
 }

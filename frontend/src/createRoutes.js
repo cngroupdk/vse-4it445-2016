@@ -9,6 +9,7 @@ import { ProductDetailPage } from './pages/ProductDetailPage.js'
 import { ProductsPage } from './pages/ProductsPage.js';
 import { ShoppingCartPage } from './pages/ShoppingCartPage.js'
 import { ShoppingCartCheckoutPage } from './pages/ShoppingCartCheckoutPage.js'
+import { LoginPage } from './pages/LoginPage.js';
 
 export function createRoutes() {
   return (
@@ -21,6 +22,7 @@ export function createRoutes() {
       <Route path="/contact" component={ContactPage}/>
       <Route path="/cart" component={ShoppingCartPage}/>
       <Route path="/cart/checkout" component={ShoppingCartCheckoutPage}/>
+      <Route path="/login" component={LoginPage}/>
       <Route path="*" component={NoMatchPage}/>
     </Route>
   );
