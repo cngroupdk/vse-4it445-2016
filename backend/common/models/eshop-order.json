@@ -50,6 +50,13 @@
       "principalId": "$everyone",
       "permission": "ALLOW",
       "property": "submit"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "find"
     }
   ],
   "methods": {

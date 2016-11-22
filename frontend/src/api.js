@@ -8,4 +8,8 @@ export function getCancelTokenSource() {
   return CancelToken.source();
 }
 
+export function setAuthToken(authToken) {
+  api.defaults.headers.common['Authorization'] = authToken;
+}
+
 export default api;
