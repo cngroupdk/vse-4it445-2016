@@ -8,3 +8,17 @@ export const dummyAction = data => {
     world: "!",
   };
 };
+
+export const loginAction = (authToken, userId) => {
+  return {
+    type: 'LOGIN',
+    authToken,
+    userId,
+  };
+};
+
+export const logoutAction = () => {
+  return {
+    type: 'LOGOUT',
+  };
+};

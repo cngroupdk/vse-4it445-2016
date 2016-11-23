@@ -9,7 +9,7 @@ import { ProductDetailPage } from './pages/ProductDetailPage.js'
 import { ProductsPage } from './pages/ProductsPage.js';
 import { ShoppingCartPage } from './pages/ShoppingCartPage.js'
 import { ShoppingCartCheckoutPage } from './pages/ShoppingCartCheckoutPage.js'
-import { LoginPage } from './pages/LoginPage.js';
+import LoginPage from './pages/LoginPage.js';
 
 export function createRoutes() {
   return (

@@ -5,10 +5,12 @@ import { rootReducer } from '../reducers'
 
 function stateThatShouldBeSaved(state) {
   const {
+    auth,
     shoppingCart,
   } = state;
 
   return {
+    auth,
     shoppingCart,
   };
 }
