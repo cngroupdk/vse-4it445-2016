@@ -22,8 +22,15 @@ export class LoginForm extends Component {
 
     api.post('users/login', formData)
       .then(({ data }) => {
+        const { loginAction } = this.props;
+        const {
+          id: authToken,
+          userId,
+        } = data;
+
+        loginAction(authToken, userId);
+
         this.setState({ error: null });
-        alert('Success!');
       })
       .catch(error => {
         const { response } = error;
@@ -71,4 +78,3 @@ export class LoginForm extends Component {
     );
   }
 }
-

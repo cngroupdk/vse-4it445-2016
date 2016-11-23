@@ -32,7 +32,15 @@
       "foreignKey": "orderId"
     }
   },
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "property": "find"
+    }
+  ],
   "methods": {
     "submit": {
       "accepts": [

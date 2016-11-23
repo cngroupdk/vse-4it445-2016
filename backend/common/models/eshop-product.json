@@ -26,6 +26,14 @@
       "foreignKey": "categoryId"
     }
   },
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "property": "updateAll"
+    }
+  ],
   "methods": {}
 }
