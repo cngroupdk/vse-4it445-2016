@@ -10,7 +10,9 @@ describe('AddProductToCartButton', () => {
 
     uexpect(
       renderer,
+
       'to have rendered',
+
       <button>
         <span
           className="glyphicon glyphicon-shopping-cart"
@@ -19,9 +21,11 @@ describe('AddProductToCartButton', () => {
     );
   });
 
+
   it('handles click events', () => {
     const mockProduct = { id: 1, title: 'Hello' };
     const mockOnClick = jest.fn();
+
     const renderer = TestUtils.createRenderer();
     renderer.render(
       <AddProductToCartButton

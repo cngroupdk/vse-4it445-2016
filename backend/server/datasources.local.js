@@ -1,4 +1,5 @@
 'use strict';
+const path = require('path');
 
 const {
   DB_HOST,
@@ -9,7 +10,7 @@ const {
 } = process.env;
 
 module.exports = {
-  "mysqlds": {
+  mysqlds: {
     name: "mysqlds",
     connector: "mysql",
     host: DB_HOST,
@@ -17,5 +18,11 @@ module.exports = {
     database: DB_DATABASE,
     username: DB_USERNAME,
     password: DB_PASSWORD,
+  },
+  container: {
+    name: "container",
+    connector: "loopback-component-storage",
+    provider: "filesystem",
+    root: path.join(__dirname, '..', 'uploads'),
   }
 }

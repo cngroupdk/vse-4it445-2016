@@ -15,12 +15,13 @@ log4js.configure({
 var dotenv = require('dotenv');
 dotenv.config();
 
-var loopback = require('loopback');
 var boot = require('loopback-boot');
+var compression =  require('compression');
+var loopback = require('loopback');
+var multer = require('multer');
 
 var app = module.exports = loopback();
-var multer = require('multer');
-app.use(multer().none());
+app.use(multer().any());
 
 app.get('/hello', function (req, res) {
   const data = {

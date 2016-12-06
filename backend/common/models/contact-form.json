@@ -1,0 +1,80 @@
+{
+  "name": "ContactForm",
+  "plural": "contact",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "attachmentFilename": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "submit": {
+      "accepts": [
+        {
+          "arg": "name",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "email",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "note",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "attachment",
+          "type": "buffer",
+          "required": false,
+          "description": ""
+        },
+        {
+          "arg": "req",
+          "type": "object",
+          "required": false,
+          "description": "",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "id",
+          "type": "number",
+          "root": false,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/submit",
+          "verb": "post"
+        }
+      ]
+    }
+  }
+}

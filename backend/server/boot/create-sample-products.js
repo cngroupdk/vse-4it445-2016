@@ -58,4 +58,19 @@ module.exports = function(app) {
   });
   app.dataSources.mysqlds.autoupdate('EshopOrder', function(err) { });
   app.dataSources.mysqlds.autoupdate('EshopOrderItem', function(err) { });
+
+  app.dataSources.mysqlds.autoupdate('ContactForm', function(err) {
+    const { container } = app.models;
+
+    const contactFormAttachmentsContainerName = 'contact-form-attachments';
+    container.getContainer(contactFormAttachmentsContainerName, function(err, container) {
+      if (!err) { return; }
+
+      container.createContainer({ name: contactFormAttachmentsContainerName }, function(err, container) {
+        if (err) {
+          console.error('Error creating ContactForm attachment Container', err);
+        }
+      });
+    });
+  });
 };

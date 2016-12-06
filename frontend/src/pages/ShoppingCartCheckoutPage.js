@@ -23,7 +23,7 @@ export class ShoppingCartCheckoutPageRaw extends Component {
     const formItems = items.map(({ product, quantity }) => ({
       productId: product.id,
       quantity,
-    }))
+    }));
 
     const formData = new FormData(event.target);
     formData.append(

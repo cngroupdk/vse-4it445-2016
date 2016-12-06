@@ -48,5 +48,13 @@
   "user": {
     "dataSource": "mysqlds",
     "public": true
+  },
+  "container": {
+    "dataSource": "container",
+    "public": true
+  },
+  "ContactForm": {
+    "dataSource": "mysqlds",
+    "public": true
   }
 }

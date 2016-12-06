@@ -7,5 +7,10 @@
     "name": "mysqlds",
     "connector": "memory",
     "note": "This is overwritten in ./datasources.local.js"
+  },
+  "container": {
+    "name": "container",
+    "connector": "loopback-component-storage",
+    "note": "This is overwritten in ./datasources.local.js"
   }
 }
