@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
 
+import Tabs from '../components/common/Tabs.js';
 import api from '../api.js';
 import { AddProductToCartButtonContainer } from '../components/ShoppingCart/AddProductToCartButton.js';
 
@@ -9,7 +9,6 @@ export class ProductDetailPage extends Component {
     super(props);
 
     this.state = {
-      activeTabId: 0,
       product: null,
     };
   }
@@ -27,13 +26,8 @@ export class ProductDetailPage extends Component {
     });
   }
 
-  selectTab(event, tabId) {
-    event.preventDefault();
-    this.setState({ activeTabId: tabId })
-  }
-
   render() {
-    const { product, activeTabId } = this.state;
+    const { product } = this.state;
     if (!product) {
       return <div>Loading...</div>;
     }
@@ -48,6 +42,20 @@ export class ProductDetailPage extends Component {
       name: categoryName,
     } = category || {};
 
+    const tabs = [
+      { label: 'Description', render: () => <button>hello 1</button> },
+      { label: 'Parameters', render: () => <button>hello 2</button> },
+      { label: 'Attributes', render: () => (
+        <div>
+          <h2>Attributes</h2>
+          <ul>
+            <li>abc</li>
+            <li>123</li>
+          </ul>
+        </div>
+      ) },
+    ];
+
     return (
       <div>
         <div className="jumbotron">
@@ -61,18 +69,7 @@ export class ProductDetailPage extends Component {
         <p>{shortInfo}</p>
 
         <div className="product">
-          <ul className="nav nav-tabs">
-            <li role="presentation" className={classNames({ active: 0 === activeTabId })}>
-              <a href="#" onClick={(event) => this.selectTab(event, 0)}>
-                Description
-              </a>
-            </li>
-            <li role="presentation" className={classNames({ active: 1 === activeTabId })}>
-              <a href="#" onClick={(event) => this.selectTab(event, 1)}>
-                Parameters
-              </a>
-            </li>
-          </ul>
+          <Tabs tabs={tabs} />
         </div>
       </div>
     );
